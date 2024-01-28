@@ -30,25 +30,35 @@ sudo service sshd restart
 # 4. Install prerequisites: Java, git, unzip
 ```bash
 cd /opt
+
 sudo apt-get update
-sudo apt-get install wget git nano unzip -y
-sudo apt-get install openjdk-11-jdk openjdk-8-jdk -y
+
+sudo apt-get install wget git unzip -y
+
+sudo apt-get install openjdk-8-jdk openjdk-11-jdk openjdk-17-jdk -y
+
 ```
 
 # 5. Download Nexus software and extract it
 ```bash
-sudo wget http://download.sonatype.com/nexus/3/nexus-3.15.2-01-unix.tar.gz 
-sudo tar -zxvf nexus-3.15.2-01-unix.tar.gz
-sudo mv /opt/nexus-3.15.2-01 /opt/nexus
-sudo rm -rf nexus-3.15.2-01-unix.tar.gz
+sudo wget https://download.sonatype.com/nexus/3/nexus-3.61.0-02-unix.tar.gz
+
+sudo tar -zxvf nexus-3.61.0-02-unix.tar.gz
+
+sudo rm -rf nexus-3.61.0-02-unix.tar.gz
+
+sudo mv /opt/nexus-3.61.0-02 /opt/nexus
+
 ```
 
 # 6. Change owner and group permissions for directories
 ```bash
+
 sudo chown -R nexus:nexus /opt/nexus
 sudo chown -R nexus:nexus /opt/sonatype-work
 sudo chmod -R 775 /opt/nexus
 sudo chmod -R 775 /opt/sonatype-work
+
 ```
 
 # 7. Open /opt/nexus/bin/nexus.rc and configure Nexus to run as the Nexus user
@@ -69,8 +79,12 @@ sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
 # 9. Enable and start the Nexus service
 
 ```bash
+sudo systemctl daemon-reload
+
 sudo systemctl enable nexus
+
 sudo systemctl start nexus
+
 sudo systemctl status nexus
 
 ```
@@ -78,3 +92,11 @@ sudo systemctl status nexus
 ```bash
 echo "End of Nexus installation"
 ```
+====================================================================================
+====================================================================================
+http://<your_server_ip>8081/jendarey 
+
+default nexus login:
+userName: = admin 
+password = to get password:  -  cat /opt/sonatype-work/nexus3/admin.password
+
