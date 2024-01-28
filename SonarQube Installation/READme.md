@@ -13,16 +13,18 @@
 # 1. Create Sonar User
 
 ```bash
+
+sudo yum update -y
 sudo useradd sonar
 echo "sonar ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/sonar
 sudo hostnamectl set-hostname sonar
-sudo su - sonar
+
 ```
 
 # Assign a password to sonar user
 
 ```bash
-sudo passwd sonar
+echo "sonar:admin" | sudo chpasswd
 ```
 
 # 2. Enable Password Authentication for SSH
@@ -32,21 +34,20 @@ sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication
 sudo service sshd restart
 ```
 
-# 3. Install Java JDK 1.8+
+# 3. Install Java JDK 17 and other dependencies
 
 ```bash
-sudo yum -y install unzip wget git
-sudo yum install java-11-openjdk-devel
+sudo yum install unzip wget git java-17-openjdk-devel -y
 ```
 
 # 4. Download and Extract SonarQube Server Software
 
 ```bash
 cd /opt
-sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.8.zip
-sudo unzip sonarqube-7.8.zip
-sudo rm -rf sonarqube-7.8.zip
-sudo mv sonarqube-7.8 sonarqube
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.2.1.78527.zip
+sudo unzip sonarqube-10.2.1.78527.zip
+sudo rm -rf sonarqube-10.2.1.78527.zip
+sudo mv sonarqube-10.2.1.78527 sonarqube
 ```
 
 # 5. Grant Permissions to Sonar User
@@ -59,8 +60,8 @@ sudo chmod -R 775 /opt/sonarqube/
 # 6. Start SonarQube Server
 
 ```bash
-sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start
-sh /opt/sonarqube/bin/linux-x86-64/sonar.sh status
+sudo su - sonar -c "/opt/sonarqube/bin/linux-x86-64/sonar.sh start"
+sudo su - sonar -c "/opt/sonarqube/bin/linux-x86-64/sonar.sh status"
 ```
 
 # 7. Access SonarQube
