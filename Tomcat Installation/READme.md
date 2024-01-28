@@ -66,16 +66,31 @@ sudo chmod 777 -R /opt/tomcat10
 sudo chown ubuntu:ubuntu -R /opt/tomcat10
 ~~~
 
-# Step 6: Start Tomcat
-~~~
-sh /opt/tomcat10/bin/startup.sh
-~~~
-
-# Step 7: Create symbolic links for managing Tomcat as a service
+# Step 6: Create symbolic links for managing Tomcat as a service
 ~~~
 sudo ln -s /opt/tomcat10/bin/startup.sh /usr/bin/starttomcat
 sudo ln -s /opt/tomcat10/bin/shutdown.sh /usr/bin/stoptomcat
 ~~~
+
+# Step 7: Enable External Tomcat Management Access
+~~~
+
+sed -i '/<Valve className="org.apache.catalina.valves.RemoteAddrValve"/s/^/<!-- /' /opt/tomcat10/webapps/manager/META-INF/context.xml
+sed -i '/allow="127\\.[0-9]\+\.[0-9]\+\.[0-9]\+\|::1\|0:0:0:0:0:0:0:1"/s/$/" --> /' /opt/tomcat10/webapps/manager/META-INF/context.xml
+
+sed -i '/<Valve className="org.apache.catalina.valves.RemoteAddrValve"/s/^/<!-- /' /opt/tomcat10/webapps/host-manager/META-INF/context.xml
+sed -i '/allow="127\\.[0-9]\+\.[0-9]\+\.[0-9]\+\|::1\|0:0:0:0:0:0:0:1"/s/$/" --> /' /opt/tomcat10/webapps/host-manager/META-INF/context.xml
+
+~~~
+
+# Step 8: Create Tomcat Users with Access Roles
+~~~
+
+sudo sed -i '/<\/tomcat-users>/i \<user username="admin" password="admin123" roles="manager-gui,admin-gui,manager-script"/>' /opt/tomcat10/conf/tomcat-users.xml
+sudo sed -i '/<\/tomcat-users>/i \<user username="admin2" password="admin123" roles="admin-gui"/>' /opt/tomcat10/conf/tomcat-users.xml
+
+~~~
+
 
 # Step 8: Start Tomcat using the service links
 ~~~
