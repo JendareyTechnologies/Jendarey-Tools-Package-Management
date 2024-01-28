@@ -7,21 +7,21 @@
 
 # Set the hostname and switch to the root user
 ```bash
-sudo hostnamectl set-hostname jenkins
-sudo -i
+sudo hostnamectl set-hostname jenkins-scripts
+sudo timedatectl set-timezone America/Chicago
 ```
 
 
 # Install necessary packages
 ```bash
 sudo apt-get update
-sudo apt-get install vim nano tree wget openjdk-11-jdk -y
+sudo apt-get install tree git wget openjdk-17-jdk -y
 ```
 
 # Add Jenkins repository
 ```bash
-curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
-  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 ```
 
 ```bash
