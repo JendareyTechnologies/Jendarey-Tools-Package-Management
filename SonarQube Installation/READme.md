@@ -15,9 +15,25 @@
 ```bash
 
 sudo yum update -y
+
+```
+
+```bash
+
 sudo useradd sonar
+
+```
+
+```bash
+
 echo "sonar ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/sonar
+
+```
+
+```bash
+
 sudo hostnamectl set-hostname sonar
+sudo su - ec2-user
 
 ```
 
