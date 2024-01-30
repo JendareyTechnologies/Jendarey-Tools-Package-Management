@@ -31,26 +31,48 @@ sudo service sshd restart
 ```bash
 cd /opt
 
+```
+
+```bash
+
 sudo apt-get update
 
+```
+
+```bash
+
 sudo apt-get install wget git unzip -y
+
+```
+
+```bash
 
 sudo apt-get install openjdk-8-jdk openjdk-11-jdk openjdk-17-jdk -y
 
 ```
-
 # 5. Download Nexus software and extract it
 ```bash
 sudo wget https://download.sonatype.com/nexus/3/nexus-3.61.0-02-unix.tar.gz
 
+```
+
+```bash
+
 sudo tar -zxvf nexus-3.61.0-02-unix.tar.gz
 
+```
+
+```bash
+
 sudo rm -rf nexus-3.61.0-02-unix.tar.gz
+
+```
+
+```bash
 
 sudo mv /opt/nexus-3.61.0-02 /opt/nexus
 
 ```
-
 # 6. Change owner and group permissions for directories
 ```bash
 
