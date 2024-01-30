@@ -60,12 +60,31 @@ sudo yum install unzip wget git java-17-openjdk-devel -y
 
 ```bash
 cd /opt
-sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.2.1.78527.zip
-sudo unzip sonarqube-10.2.1.78527.zip
-sudo rm -rf sonarqube-10.2.1.78527.zip
-sudo mv sonarqube-10.2.1.78527 sonarqube
+
 ```
 
+```bash
+
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.2.1.78527.zip
+
+```
+
+```bash
+sudo unzip sonarqube-10.2.1.78527.zip
+
+```
+
+```bash
+
+sudo rm -rf sonarqube-10.2.1.78527.zip
+
+```
+
+```bash
+
+sudo mv sonarqube-10.2.1.78527 sonarqube
+
+```
 # 5. Grant Permissions to Sonar User
 
 ```bash
