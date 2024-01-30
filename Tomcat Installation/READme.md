@@ -37,20 +37,20 @@ java -version
 
 # Step 3: Download and extract Tomcat 10.1.13
 ~~~
-sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.13/bin/apache-tomcat-10.1.13.zip
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.18/bin/apache-tomcat-10.1.18.zip
 ~~~
 
 ~~~
-sudo unzip apache-tomcat-10.1.13.zip
+sudo unzip apache-tomcat-10.1.18.zip
 ~~~
 
 ~~~
-sudo rm -rf apache-tomcat-10.1.13.zip
+sudo rm -rf apache-tomcat-10.1.18.zip
 ~~~
 
 # Step 4: Rename Tomcat directory
 ~~~
-sudo mv apache-tomcat-10.1.13 tomcat10
+sudo mv apache-tomcat-10.1.18 tomcat10
 ~~~
 
 # Step 5: Set permissions and ownership
