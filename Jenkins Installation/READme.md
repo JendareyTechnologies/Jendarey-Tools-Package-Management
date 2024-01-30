@@ -7,7 +7,7 @@
 
 # Set the hostname and switch to the root user
 ```bash
-sudo hostnamectl set-hostname jenkins-scripts
+sudo hostnamectl set-hostname jenkins-server
 sudo su - ubuntu
 sudo timedatectl set-timezone America/Chicago
 ```
