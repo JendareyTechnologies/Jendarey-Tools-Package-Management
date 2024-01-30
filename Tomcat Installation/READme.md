@@ -10,7 +10,7 @@
 
 # Change hostname to 'tomcat'
 ~~~
-sudo hostnamectl set-hostname tomcat
+sudo hostnamectl set-hostname tomcat-server
 sudo su - ubuntu
 ~~~
 
