@@ -35,7 +35,7 @@ sudo apt install openjdk-11-jdk openjdk-17-jdk -y
 java -version
 ~~~
 
-# Step 3: Download and extract Tomcat 10.1.13
+# Step 3: Download and extract Tomcat 10.1.18
 ~~~
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.18/bin/apache-tomcat-10.1.18.zip
 ~~~
