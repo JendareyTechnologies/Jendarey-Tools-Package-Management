@@ -6,7 +6,7 @@
 - AWS Account
 - Create ubuntu ec2 t2.medium Instance with 4GB of RAM.
 - Security Group with required ports open (22, 8080)
-- Java OpenJDK 11 and OpenJDK 17 installed
+- Java OpenJDK 11 and OpenJDK 17 install
 
 # Change hostname to 'tomcat'
 ~~~
