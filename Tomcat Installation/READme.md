@@ -14,7 +14,7 @@ sudo hostnamectl set-hostname tomcat-server
 sudo su - ubuntu
 ~~~
 
-# Step 1: Update and upgrade Package List
+# Step 1: Update the server
 ~~~
 sudo apt update  
 ~~~
